@@ -276,6 +276,8 @@
                         android:textSize="11sp" />
 
                 </LinearLayout>
+                <!-- RECENT TRANSACTIONS -->
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -299,6 +301,14 @@
                         android:orientation="vertical" />
 
                 </LinearLayout>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/weeklySpendingChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="20dp" />
+
 
 
 
