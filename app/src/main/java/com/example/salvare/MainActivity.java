@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
 
@@ -53,6 +54,37 @@ public class MainActivity extends AppCompatActivity {
 
         // Display dashboard information
         updateDashboard();
+        // Bottom Navigation Bar
+        BottomNavigationView bottomNavigation =
+                findViewById(R.id.bottomNavigation);
+
+        bottomNavigation.setSelectedItemId(R.id.nav_home);
+
+        bottomNavigation.setOnItemSelectedListener(item -> {
+
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.nav_home) {
+                return true;
+            }
+
+            if (itemId == R.id.nav_transactions) {
+                // Open your transaction screen
+                return true;
+            }
+
+            if (itemId == R.id.nav_statistics) {
+                // Open your statistics screen
+                return true;
+            }
+
+            if (itemId == R.id.nav_profile) {
+                // Open your profile screen
+                return true;
+            }
+
+            return false;
+        });
     }
 
     @Override
