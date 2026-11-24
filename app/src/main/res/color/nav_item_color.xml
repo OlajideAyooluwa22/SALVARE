@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Selected navigation icon and text -->
+    <item
+        android:color="#C4F500"
+        android:state_checked="true" />
+
+    <!-- Unselected navigation icon and text -->
+    <item android:color="#92988D" />
+
+</selector>

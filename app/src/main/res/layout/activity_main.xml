@@ -1,72 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#10120F"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="#10120F">
 
-    <LinearLayout
+    <!-- SCROLLABLE DASHBOARD CONTENT -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#10120F"
+        android:fillViewport="true">
 
-        <!-- HEADER -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SALVARE"
-                    android:textColor="#C4F500"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.08" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Your personal finance space"
-                    android:textColor="#92988D"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:background="@drawable/bg_avatar"
-                android:gravity="center"
-                android:text="S"
-                android:textColor="#C4F500"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <!-- BALANCE CARD -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="190dp"
-            android:layout_marginTop="22dp"
-            android:background="@drawable/bg_balance_card"
             android:orientation="vertical"
-            android:padding="18dp">
+            android:padding="20dp">
 
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SALVARE"
+                        android:textColor="#C4F500"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.08" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your personal finance space"
+                        android:textColor="#92988D"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/bg_avatar"
+                    android:gravity="center"
+                    android:text="S"
+                    android:textColor="#C4F500"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- BALANCE CARD -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="190dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/bg_balance_card"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Current Balance"
+                        android:textColor="#354500"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● MONTHLY"
+                        android:textColor="#354500"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/balanceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="€0.00"
+                    android:textColor="#10120F"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="21sp"
+                    android:autoSizeMaxTextSize="30sp"
+                    android:autoSizeStepGranularity="1sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Available balance"
+                    android:textColor="#53651A"
+                    android:textSize="12sp" />
+
+                <!-- ACTION BUTTONS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/addButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_dark_button"
+                        android:text="+  ADD"
+                        android:textAllCaps="false"
+                        android:textColor="#C4F500"
+                        android:textSize="13sp"
+                        android:minHeight="0dp"
+                        android:padding="0dp" />
+
+                    <Button
+                        android:id="@+id/historyButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_dark_button"
+                        android:text="HISTORY  →"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:minHeight="0dp"
+                        android:padding="0dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- FINANCIAL OVERVIEW HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -74,340 +171,271 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Current Balance"
-                    android:textColor="#354500"
-                    android:textSize="14sp" />
+                    android:text="Financial Overview"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="● MONTHLY"
-                    android:textColor="#354500"
-                    android:textSize="10sp" />
+                    android:text="SEE ALL"
+                    android:textColor="#C4F500"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/balanceText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:text="€0.00"
-                android:textColor="#10120F"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:singleLine="true"
-                android:autoSizeTextType="uniform"
-                android:autoSizeMinTextSize="21sp"
-                android:autoSizeMaxTextSize="30sp"
-                android:autoSizeStepGranularity="1sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Available balance"
-                android:textColor="#53651A"
-                android:textSize="12sp" />
-
-            <!-- ACTION BUTTONS -->
+            <!-- FIRST ROW: INCOME AND EXPENSES -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="14dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/addButton"
+                <!-- INCOME -->
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="125dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/bg_dark_button"
-                    android:text="+  ADD"
-                    android:textAllCaps="false"
-                    android:textColor="#C4F500"
-                    android:textSize="13sp"
-                    android:minHeight="0dp"
-                    android:padding="0dp" />
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/bg_dark_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
 
-                <Button
-                    android:id="@+id/historyButton"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↗  INCOME"
+                        android:textColor="#C4F500"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/incomeText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="€0.00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="14sp"
+                        android:autoSizeMaxTextSize="18sp"
+                        android:autoSizeStepGranularity="1sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Money received"
+                        android:textColor="#92988D"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <!-- EXPENSES -->
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="125dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/bg_dark_button"
-                    android:text="HISTORY  →"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13sp"
-                    android:minHeight="0dp"
-                    android:padding="0dp" />
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/bg_dark_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="↘  EXPENSES"
+                        android:textColor="#FF8277"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/expenseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="€0.00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="14sp"
+                        android:autoSizeMaxTextSize="18sp"
+                        android:autoSizeStepGranularity="1sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Money spent"
+                        android:textColor="#92988D"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
-
-        <!-- ACTIVITY HEADER -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
+            <!-- SECOND ROW: SHOPPING AND SAVINGS -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Financial Overview"
-                android:textColor="#FFFFFF"
-                android:textSize="19sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <!-- SHOPPING -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="115dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/bg_dark_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🛒  SHOPPING"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:text="View spending"
+                        android:textColor="#92988D"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <!-- SAVINGS -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="115dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/bg_lime_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💰  SAVINGS"
+                        android:textColor="#182000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:text="Build your future"
+                        android:textColor="#53651A"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- THIRD ROW: TRANSPORT AND BILLS -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SEE ALL"
-                android:textColor="#C4F500"
-                android:textSize="11sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <!-- TRANSPORT -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="115dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/bg_dark_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🚗  TRANSPORT"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:text="Travel expenses"
+                        android:textColor="#92988D"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+                <!-- BILLS -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="115dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/bg_dark_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏠  BILLS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:text="Monthly payments"
+                        android:textColor="#92988D"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- FOOTER -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:text="SALVARE  •  SAVE SMARTER, LIVE BETTER"
+                android:textColor="#697267"
+                android:textSize="10sp"
+                android:letterSpacing="0.08" />
 
         </LinearLayout>
 
-        <!-- FIRST ROW -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+    </ScrollView>
 
-            <!-- INCOME -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="7dp"
-                android:background="@drawable/bg_dark_card"
-                android:orientation="vertical"
-                android:padding="14dp">
+    <!-- FIXED BOTTOM NAVIGATION BAR -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#191C18"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="↗  INCOME"
-                    android:textColor="#C4F500"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+</LinearLayout>
 
-                <TextView
-                    android:id="@+id/incomeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:text="€0.00"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:singleLine="true"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMinTextSize="14sp"
-                    android:autoSizeMaxTextSize="18sp"
-                    android:autoSizeStepGranularity="1sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Money received"
-                    android:textColor="#92988D"
-                    android:textSize="11sp" />
-
-            </LinearLayout>
-
-            <!-- EXPENSES -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:layout_weight="1"
-                android:layout_marginStart="7dp"
-                android:background="@drawable/bg_dark_card"
-                android:orientation="vertical"
-                android:padding="14dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="↘  EXPENSES"
-                    android:textColor="#FF8277"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/expenseText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:text="€0.00"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:singleLine="true"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMinTextSize="14sp"
-                    android:autoSizeMaxTextSize="18sp"
-                    android:autoSizeStepGranularity="1sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Money spent"
-                    android:textColor="#92988D"
-                    android:textSize="11sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- SECOND ROW -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="115dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="7dp"
-                android:background="@drawable/bg_dark_card"
-                android:orientation="vertical"
-                android:padding="14dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🛒  SHOPPING"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:text="View spending"
-                    android:textColor="#92988D"
-                    android:textSize="11sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="115dp"
-                android:layout_weight="1"
-                android:layout_marginStart="7dp"
-                android:background="@drawable/bg_lime_card"
-                android:orientation="vertical"
-                android:padding="14dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="💰  SAVINGS"
-                    android:textColor="#182000"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:text="Build your future"
-                    android:textColor="#53651A"
-                    android:textSize="11sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- THIRD ROW -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="115dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="7dp"
-                android:background="@drawable/bg_dark_card"
-                android:orientation="vertical"
-                android:padding="14dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🚗  TRANSPORT"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:text="Travel expenses"
-                    android:textColor="#92988D"
-                    android:textSize="11sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="115dp"
-                android:layout_weight="1"
-                android:layout_marginStart="7dp"
-                android:background="@drawable/bg_dark_card"
-                android:orientation="vertical"
-                android:padding="14dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🏠  BILLS"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:text="Monthly payments"
-                    android:textColor="#92988D"
-                    android:textSize="11sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- FOOTER -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:text="SALVARE  •  SAVE SMARTER, LIVE BETTER"
-            android:textColor="#697267"
-            android:textSize="10sp"
-            android:letterSpacing="0.08" />
-
-    </LinearLayout>
-
-</ScrollView>
 
