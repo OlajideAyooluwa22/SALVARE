@@ -14,6 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        float[] weeklySpending = {
+                20f, 45f, 15f, 60f, 35f, 80f, 25f
+        };
+
+        setupWeeklySpendingChart(weeklySpending);
 
         // Initialise database
         databaseHelper = new DatabaseHelper(this);
@@ -139,6 +151,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Display recent transactions
         displayRecentTransactions(cursor);
+
+        // Initialise weekly spending chart
+        // Replace these placeholder values with actual weekly totals.
+        float[] weeklySpending = {
+                0f, 0f, 0f, 0f, 0f, 0f, 0f
+        };
+
+        setupWeeklySpendingChart(weeklySpending);
     }
 
     // Display the latest 5 transactions
@@ -254,5 +274,93 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
         }
     }
+
+    // Setup weekly spending bar chart
+    private void setupWeeklySpendingChart(
+            float[] weeklySpending) {
+
+        BarChart chart =
+                findViewById(R.id.weeklySpendingChart);
+
+        ArrayList<BarEntry> entries =
+                new ArrayList<>();
+
+        // Create chart entries
+        for (int i = 0; i < weeklySpending.length; i++) {
+
+            entries.add(new BarEntry(
+                    i,
+                    weeklySpending[i]
+            ));
+        }
+
+        // Create dataset
+        BarDataSet dataSet = new BarDataSet(
+                entries,
+                "Weekly Spending (€)"
+        );
+
+        // Chart bar colour
+        dataSet.setColor(
+                Color.parseColor("#C4F500")
+        );
+
+        // Value text colour
+        dataSet.setValueTextColor(Color.WHITE);
+
+        dataSet.setValueTextSize(12f);
+
+        // Create bar data
+        BarData barData = new BarData(dataSet);
+
+        barData.setBarWidth(0.5f);
+
+        chart.setData(barData);
+
+        // Days of the week
+        String[] days = {
+                "Mon", "Tue", "Wed",
+                "Thu", "Fri", "Sat", "Sun"
+        };
+
+        // Configure X axis
+        chart.getXAxis().setValueFormatter(
+                new IndexAxisValueFormatter(days)
+        );
+
+        chart.getXAxis().setGranularity(1f);
+
+        chart.getXAxis().setGranularityEnabled(true);
+
+        chart.getXAxis().setLabelCount(7);
+
+        chart.getXAxis().setPosition(
+                com.github.mikephil.charting.components
+                        .XAxis.XAxisPosition.BOTTOM
+        );
+
+        chart.getXAxis().setTextColor(Color.WHITE);
+
+        // Configure Y axis
+        chart.getAxisLeft().setTextColor(Color.WHITE);
+
+        chart.getAxisRight().setEnabled(false);
+
+        // Chart appearance
+        chart.getDescription().setEnabled(false);
+
+        chart.getLegend().setTextColor(Color.WHITE);
+
+        chart.setDrawGridBackground(false);
+
+        chart.setFitBars(true);
+
+        // Animate chart
+        chart.animateY(800);
+
+        // Refresh chart
+        chart.invalidate();
+    }
 }
+
 
